@@ -61,11 +61,4 @@ public class StreamListTest {
         IntStream stream = new Random().ints(4);
         stream.forEach(System.out::println);
     }
-
-    @Test
-    @DisplayName("람다 테스트")
-    void intStreamOfRamda() {
-        IntStream stream = (IntStream) Stream.iterate(2, n -> n + 2);
-    }
-
 }
