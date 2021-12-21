@@ -4,6 +4,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -54,5 +55,30 @@ public class StreamIntermediateOperationTest {
         System.out.println();
     }
 
+    @Test
+    @DisplayName("스트림 정렬")
+    void sortTest() {
+        Stream<String> stream = Stream.of("HTML", "CSS", "JAVA", "JAVASCRIPT");
+        Stream<String> stream1 = Stream.of("HTML", "CSS", "JAVA", "JAVASCRIPT");
 
+        stream.sorted().forEach(s -> System.out.print(s + " "));
+        System.out.println();
+
+        stream1.sorted(Comparator.reverseOrder()).forEach(s -> System.out.println(s + " "));
+    }
+
+    @Test
+    @DisplayName("스트림 연산 결과 확인")
+    void intermediateOperationTest() {
+        IntStream stream = IntStream.of(3, 2, 6, 7, 9, 3, 4, 2, 1, 7);
+
+        stream.peek(s -> System.out.println("원본 스트림 : " + s))
+                .skip(2)
+                .peek(s -> System.out.println("skip(2) 실행 후 : " + s))
+                .limit(5)
+                .peek(s -> System.out.println("limit(5) 실행 후 : " + s))
+                .sorted()
+                .peek(s -> System.out.println("sorted() 실행 후 : " + s))
+                .forEach(n -> System.out.println(n));
+    }
 }
