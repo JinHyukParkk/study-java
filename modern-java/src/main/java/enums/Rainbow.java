@@ -1,6 +1,7 @@
 package enums;
 
 public enum Rainbow {
+
     RED,
     ORANGE,
     YELLOW,
