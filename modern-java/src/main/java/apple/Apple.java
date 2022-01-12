@@ -26,4 +26,12 @@ public class Apple {
     public void setWeight(Integer weight) {
         this.weight = weight;
     }
+
+    @Override
+    public String toString() {
+        return "Apple{" +
+                "color='" + color + '\'' +
+                ", weight=" + weight +
+                '}';
+    }
 }

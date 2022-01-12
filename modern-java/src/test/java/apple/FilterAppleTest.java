@@ -6,8 +6,6 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class FilterAppleTest {
 
     private static List<Apple> appleList = new ArrayList<>();
@@ -22,6 +20,12 @@ class FilterAppleTest {
         appleList.add(new Apple("red", 180));
         appleList.add(new Apple("yello", 130));
         appleList.add(new Apple("yello", 190));
+        appleList.add(new Apple("green", 230));
+        appleList.add(new Apple("red", 100));
+        appleList.add(new Apple("blue", 600));
+        appleList.add(new Apple("red", 80));
+        appleList.add(new Apple("grenn", 330));
+        appleList.add(new Apple("purple", 500));
     }
 
     @Test
@@ -31,7 +35,6 @@ class FilterAppleTest {
         for (Apple apple : result) {
             System.out.println(apple.getColor() + " / " + apple.getWeight());
         }
-
     }
 
     @Test
@@ -45,17 +48,16 @@ class FilterAppleTest {
 
     @Test
     void greenFilterAppleLamdaTest() {
-        List<Apple> result = FilterApple.filterApples(appleList, (Apple a) -> "green".equals(a.getColor()));
+        List<Apple> result = FilterApple.filterApples(appleList, (Apple apple) -> "green".equals(apple.getColor()));
 
         for (Apple apple : result) {
             System.out.println(apple.getColor() + " / " + apple.getWeight());
         }
-
     }
 
     @Test
     void heavyFilterAppleLamdaTest() {
-        List<Apple> result = FilterApple.filterApples(appleList, (Apple a) -> a.getWeight() > 150);
+        List<Apple> result = FilterApple.filterApples(appleList, (Apple apple) -> apple.getWeight() > 150);
 
         for (Apple apple : result) {
             System.out.println(apple.getColor() + " / " + apple.getWeight());

@@ -31,7 +31,6 @@ class BasicFilterAppleTest {
         for (Apple apple : result) {
             System.out.println(apple.getColor() + " / " + apple.getWeight());
         }
-
     }
 
     @Test
