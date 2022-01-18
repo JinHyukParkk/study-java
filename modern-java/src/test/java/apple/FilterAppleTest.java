@@ -12,20 +12,20 @@ class FilterAppleTest {
 
     @BeforeAll
     static void settingData() {
-        appleList.add(new Apple("green", 120));
-        appleList.add(new Apple("green", 170));
-        appleList.add(new Apple("blue", 100));
-        appleList.add(new Apple("blue", 170));
-        appleList.add(new Apple("red", 110));
-        appleList.add(new Apple("red", 180));
-        appleList.add(new Apple("yello", 130));
-        appleList.add(new Apple("yello", 190));
-        appleList.add(new Apple("green", 230));
-        appleList.add(new Apple("red", 100));
-        appleList.add(new Apple("blue", 600));
-        appleList.add(new Apple("red", 80));
-        appleList.add(new Apple("grenn", 330));
-        appleList.add(new Apple("purple", 500));
+        appleList.add(new Apple(Color.GREEN, 120));
+        appleList.add(new Apple(Color.GREEN, 170));
+        appleList.add(new Apple(Color.BLUE, 100));
+        appleList.add(new Apple(Color.BLUE, 170));
+        appleList.add(new Apple(Color.RED, 110));
+        appleList.add(new Apple(Color.RED, 180));
+        appleList.add(new Apple(Color.YELLO, 130));
+        appleList.add(new Apple(Color.YELLO, 190));
+        appleList.add(new Apple(Color.GREEN, 230));
+        appleList.add(new Apple(Color.RED, 100));
+        appleList.add(new Apple(Color.BLUE, 600));
+        appleList.add(new Apple(Color.RED, 80));
+        appleList.add(new Apple(Color.GREEN, 330));
+        appleList.add(new Apple(Color.RED, 500));
     }
 
     @Test
@@ -48,7 +48,7 @@ class FilterAppleTest {
 
     @Test
     void greenFilterAppleLamdaTest() {
-        List<Apple> result = FilterApple.filterApples(appleList, (Apple apple) -> "green".equals(apple.getColor()));
+        List<Apple> result = FilterApple.filterApples(appleList, (Apple apple) -> Color.GREEN.equals(apple.getColor()));
 
         for (Apple apple : result) {
             System.out.println(apple.getColor() + " / " + apple.getWeight());

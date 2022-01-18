@@ -2,20 +2,20 @@ package apple;
 
 public class Apple {
 
-    private String color;
+    private Color color;
 
     private Integer weight;
 
-    public Apple(String color, Integer weight) {
+    public Apple(Color color, Integer weight) {
         this.color = color;
         this.weight = weight;
     }
 
-    public String getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(String color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 
