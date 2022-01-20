@@ -6,10 +6,8 @@ import java.util.function.Predicate;
 
 public class FilterApple {
 
-    private static final String GREEN = "green";
-
     public static boolean isGreenApple(Apple apple) {
-        return GREEN.equals(apple.getColor());
+        return Color.GREEN.equals(apple.getColor());
     }
 
     public static boolean isHeavyApple(Apple apple) {

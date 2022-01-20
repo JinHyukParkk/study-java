@@ -64,4 +64,12 @@ public class lambdaExpressionTest {
 
         System.out.println(numberObject.toString());
     }
+
+    @Test
+    @DisplayName("합 람다 테스트")
+    void sumTest() {
+        Mysum func = (a, b) -> a + b;
+
+        System.out.println(func.sum(10, 11));
+    }
 }
