@@ -32,6 +32,12 @@ public class lambadThreadTest {
 
         thread.start();
 
-        thread1.run();
+        thread1.start();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
