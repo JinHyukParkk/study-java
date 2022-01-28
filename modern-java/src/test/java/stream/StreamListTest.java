@@ -21,7 +21,6 @@ public class StreamListTest {
         list.add(9);
         list.add(7);
 
-
         // 컬렉션에서 Stream 생성
         Stream<Integer> stream = list.stream();
 
