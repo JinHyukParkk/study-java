@@ -1,3 +1,4 @@
 modern-java/build
 modern-java/.gradle
 *.xml
+modern-java/.idea
