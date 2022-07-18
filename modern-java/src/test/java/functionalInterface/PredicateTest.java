@@ -19,6 +19,9 @@ public class PredicateTest {
         intList.add(5);
         intList.add(11);
         intList.add(15);
+        intList.add(21);
+        intList.add(25);
+        intList.add(31);
     }
 
     @Test
@@ -26,6 +29,16 @@ public class PredicateTest {
         Predicate<Integer> integerPredicate = i -> i > 10;
 
         List<Integer> afterList = intList.stream().filter(integerPredicate).collect(Collectors.toList());
+
+        afterList.forEach(System.out::println);
+    }
+
+    @Test
+    void testPredicateAnd() {
+        Predicate<Integer> predicate1 = num -> num > 10;
+        Predicate<Integer> predicate2 = num -> num < 20;
+
+        List<Integer> afterList = intList.stream().filter(predicate1.and(predicate2)).collect(Collectors.toList());
 
         afterList.forEach(System.out::println);
     }
