@@ -63,4 +63,13 @@ class FilterAppleTest {
             System.out.println(apple.getColor() + " / " + apple.getWeight());
         }
     }
+
+    @Test
+    void bigHeavyFilterAppleLamdaTest() {
+        List<Apple> result = FilterApple.filterApples(appleList, (Apple apple) -> apple.getWeight() > 200);
+
+        for (Apple apple : result) {
+            System.out.println(apple.getColor() + " / " + apple.getWeight());
+        }
+    }
 }
