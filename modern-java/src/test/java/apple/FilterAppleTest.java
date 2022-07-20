@@ -56,6 +56,15 @@ class FilterAppleTest {
     }
 
     @Test
+    void redFilterAppleLamdaTest() {
+        List<Apple> result = FilterApple.filterApples(appleList, (Apple apple) -> Color.RED.equals(apple.getColor()));
+
+        for (Apple apple : result) {
+            System.out.println(apple.getColor() + " / " + apple.getWeight());
+        }
+    }
+
+    @Test
     void heavyFilterAppleLamdaTest() {
         List<Apple> result = FilterApple.filterApples(appleList, (Apple apple) -> apple.getWeight() > 150);
 
