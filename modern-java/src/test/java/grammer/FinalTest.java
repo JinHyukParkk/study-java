@@ -8,7 +8,7 @@ class FinalTest {
     void finalTest() {
         final String hello = "hello world!";
 
-        hello = "world2";
+//        hello = "world2";    // error
     }
 
 }
