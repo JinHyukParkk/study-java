@@ -30,4 +30,15 @@ public class StreamFilterTest {
 
         sliceNum.forEach(System.out::println);
     }
+
+    @Test
+    void skipTest() {
+        List<Integer> intList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+        List<Integer> sliceNum = intList.stream()
+                .skip(3)
+                .collect(toList());
+
+        sliceNum.forEach(System.out::println);
+    }
 }
