@@ -11,7 +11,7 @@ public class StreamFilterTest {
 
     @Test
     void takewhileTest() {
-        List<Integer> intList = Arrays.asList(5, 2, 3, 4, 1, 3, 6, 1, 2, 3, 4);
+        List<Integer> intList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
         List<Integer> sliceNum = intList.stream()
                 .takeWhile(num -> num < 3)
@@ -22,7 +22,7 @@ public class StreamFilterTest {
 
     @Test
     void dropwhileTest() {
-        List<Integer> intList = Arrays.asList(5, 2, 3, 4, 1, 3, 6, 1, 2, 3, 4);
+        List<Integer> intList = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9);
 
         List<Integer> sliceNum = intList.stream()
                 .dropWhile(num -> num < 3)
