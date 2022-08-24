@@ -1,8 +1,8 @@
-package stream;
+package stream.grammer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import stream.model.Person;
+import stream.grammer.model.Person;
 
 import java.util.ArrayList;
 import java.util.List;

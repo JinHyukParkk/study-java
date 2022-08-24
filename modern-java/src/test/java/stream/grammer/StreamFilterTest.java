@@ -1,4 +1,4 @@
-package stream;
+package stream.grammer;
 
 import org.junit.jupiter.api.Test;
 

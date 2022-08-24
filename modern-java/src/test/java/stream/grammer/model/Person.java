@@ -1,4 +1,4 @@
-package stream.model;
+package stream.grammer.model;
 
 public class Person {
     private String name;
