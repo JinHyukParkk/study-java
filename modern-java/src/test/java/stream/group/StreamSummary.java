@@ -6,12 +6,13 @@ import stream.grammer.model.Trader;
 import stream.grammer.model.Transaction;
 
 import java.util.ArrayList;
-import java.util.Currency;
-import java.util.HashMap;
+import java.util.IntSummaryStatistics;
 import java.util.List;
-import java.util.Map;
 
-public class StreamGroup {
+import static java.util.stream.Collectors.joining;
+import static java.util.stream.Collectors.summarizingInt;
+
+public class StreamSummary {
 
     List<Transaction> transactions = new ArrayList<>();
 
@@ -33,7 +34,18 @@ public class StreamGroup {
     }
 
     @Test
-    void withoutGroup() {
-        Map<Currency, List<Transaction>> transactionsByCurrencies = new HashMap<>();
+    void testSummary() {
+        IntSummaryStatistics transactionSummary = transactions.stream().collect(summarizingInt(Transaction::getValue));
+
+        System.out.println(transactionSummary);
+    }
+
+    @Test
+    void testJoining() {
+        String shortCity = transactions.stream()
+                .map(transaction -> transaction.getTrader().getCity())
+                .collect(joining(" "));
+
+        System.out.println(shortCity);
     }
 }
