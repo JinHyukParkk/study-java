@@ -10,5 +10,4 @@ class FinalTest {
 
 //        hello = "world2";    // error
     }
-
 }
