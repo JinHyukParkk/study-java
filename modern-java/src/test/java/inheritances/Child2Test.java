@@ -1,5 +1,8 @@
 package inheritances;
 
+import inheritances.parent.Child1;
+import inheritances.parent.Child2;
+import inheritances.parent.Parent;
 import org.junit.jupiter.api.Test;
 
 class Child2Test {

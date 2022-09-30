@@ -1,4 +1,4 @@
-package inheritances;
+package inheritances.parent;
 
 public abstract class Parent {
 
