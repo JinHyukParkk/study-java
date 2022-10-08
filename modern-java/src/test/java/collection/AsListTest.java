@@ -1,5 +1,7 @@
 package collection;
 
+import java.util.Collections;
+import java.util.Comparator;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -10,18 +12,15 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 class AsListTest {
+    List<String> friends = Arrays.asList("hyuk", "chul", "gun", "min");
 
     @Test
     void listTest() {
-        List<String> friends = Arrays.asList("hyuk", "chul", "gun", "min");
-
         friends.forEach(System.out::println);
     }
 
     @Test
     void listTest2() {
-        List<String> friends = List.of("hyuk", "chul", "gun", "min");
-
         try {
             System.out.println("friends.add(\"suk\"); // suk 추가");
             friends.add("suk");
@@ -44,6 +43,13 @@ class AsListTest {
     void setTest2() {
         Set<String> friends = Stream.of("hyuk", "chul", "gun", "min", "hyuk")
                 .collect(Collectors.toSet());
+
+        friends.forEach(System.out::println);
+    }
+
+    @Test
+    void sortTest() {
+        Collections.sort(friends);
 
         friends.forEach(System.out::println);
     }

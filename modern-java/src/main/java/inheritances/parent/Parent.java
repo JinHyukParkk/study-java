@@ -8,7 +8,7 @@ public abstract class Parent {
         return TEST;
     }
 
-    protected void printTest() {
+    public void printTest() {
         System.out.println(getTest());
     }
 }
