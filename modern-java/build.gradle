@@ -14,9 +14,7 @@ dependencies {
     implementation 'org.projectlombok:lombok:1.18.20'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
-    // https://mvnrepository.com/artifact/org.mockito/mockito-all
     testImplementation 'org.mockito:mockito-all:1.10.19'
-    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test
     testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
 
 
