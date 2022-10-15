@@ -36,7 +36,4 @@ class PersonServiceTest {
         personService.getCarInsurancesNames(persons)
                 .forEach(System.out::println);
     }
-
-
-
 }

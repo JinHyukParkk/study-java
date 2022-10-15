@@ -1,5 +1,7 @@
 package optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.Optional;
 import org.junit.jupiter.api.Test;
 
@@ -24,6 +26,8 @@ class InsuranceTest {
         Optional<Insurance> optionalInsurance = Optional.ofNullable(insurance);
         Optional<String> name = optionalInsurance.map(Insurance::getName);
 
+        assertThat(name.orElse("")).isEqualTo("hyuk");
+
         System.out.println(name);
     }
 
@@ -33,6 +37,8 @@ class InsuranceTest {
 
         Optional<Insurance> optionalInsurance = Optional.ofNullable(insurance);
         Optional<String> name = optionalInsurance.map(Insurance::getName);
+
+        assertThat(name).isNotNull();
 
         System.out.println(name);
     }
