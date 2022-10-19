@@ -1,7 +1,10 @@
 package date;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.time.LocalDate;
 import java.time.Month;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
 import org.junit.jupiter.api.Test;
@@ -60,5 +63,24 @@ class LocalDateExampleTest {
 
         LocalDate date3 = date.plus(6, ChronoUnit.MONTHS);
         System.out.println(date3);
+
+        LocalDate date4 = date.with(ChronoField.YEAR, 2024);
+        System.out.println(date4);
+    }
+
+    @Test
+    void testFormat() {
+        LocalDate date = LocalDate.of(2022, 10, 21);
+
+        assertThat(date).isEqualTo("2022-10-21");
+        assertThat(date.format(DateTimeFormatter.BASIC_ISO_DATE)).isEqualTo("20221021");
+        assertThat(date.format(DateTimeFormatter.ISO_LOCAL_DATE)).isEqualTo("2022-10-21");
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        String formattedDate = date.format(formatter);
+        assertThat(formattedDate).isEqualTo("21/10/2022");
+
+        LocalDate date2 = LocalDate.parse(formattedDate, formatter);
+        assertThat(date2).isEqualTo("2022-10-21");
     }
 }
