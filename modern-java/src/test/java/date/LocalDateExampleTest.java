@@ -3,6 +3,7 @@ package date;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoField;
+import java.time.temporal.ChronoUnit;
 import org.junit.jupiter.api.Test;
 
 class LocalDateExampleTest {
@@ -43,6 +44,21 @@ class LocalDateExampleTest {
 
         // withDayOfYear 그 해의 N일
         LocalDate date3 = date2.withDayOfYear(233);
+        System.out.println(date3);
+    }
+
+    @Test
+    void testRelative() {
+        LocalDate date = LocalDate.of(2022, 10, 18);
+        System.out.println(date);
+
+        LocalDate date1 = date.plusWeeks(1);
+        System.out.println(date1);
+
+        LocalDate date2 = date.minusYears(6);
+        System.out.println(date2);
+
+        LocalDate date3 = date.plus(6, ChronoUnit.MONTHS);
         System.out.println(date3);
     }
 }
