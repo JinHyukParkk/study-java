@@ -1,17 +1,16 @@
 package collection;
 
-import java.util.Collections;
-import java.util.Comparator;
-import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import org.junit.jupiter.api.Test;
 
 class AsListTest {
+
     List<String> friends = Arrays.asList("hyuk", "chul", "gun", "min");
 
     @Test
@@ -27,7 +26,6 @@ class AsListTest {
         } catch (UnsupportedOperationException e) {
             System.out.println("UnsupportedOperationException - '변경'이나 '추가' 할 수 없는 리스트임");
         }
-
 
         friends.forEach(System.out::println);
     }
