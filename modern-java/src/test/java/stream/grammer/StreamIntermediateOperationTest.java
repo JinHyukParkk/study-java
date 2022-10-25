@@ -1,12 +1,12 @@
 package stream.grammer;
 
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 public class StreamIntermediateOperationTest {
 
