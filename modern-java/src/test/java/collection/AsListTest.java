@@ -1,10 +1,12 @@
 package collection;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
@@ -50,5 +52,17 @@ class AsListTest {
         Collections.sort(friends);
 
         friends.forEach(System.out::println);
+    }
+
+    @Test
+    void thorwStackOverflowError() {
+        te111();
+    }
+
+    int i = 0;
+    void te111() {
+        List<Integer> a = new ArrayList<>();
+        a.add(new Integer(i++));
+        te111();
     }
 }
