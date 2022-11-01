@@ -4,8 +4,12 @@ import static java.util.Map.entry;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+
 import org.junit.jupiter.api.Test;
 
 public class MapTest {
@@ -44,6 +48,7 @@ public class MapTest {
     @Test
     void removeTest() {
         Map<String, List<String>> friendsToMovies = new HashMap<>();
+        new Hashtable<>();
         String key = "hyuk";
         String thor = "Thor";
 
@@ -58,5 +63,10 @@ public class MapTest {
         friendsToMovies.remove("hyuk", thor);
 
         System.out.println(friendsToMovies);
+    }
+
+    @Test
+    void concurrentMap() {
+        Map<String, Integer> map = new ConcurrentHashMap<>();
     }
 }
