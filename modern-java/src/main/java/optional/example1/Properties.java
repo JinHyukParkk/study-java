@@ -7,9 +7,6 @@ public class Properties {
 
     private HashMap<String, String> list = new HashMap<>();
 
-    public Properties() {
-    }
-
     public HashMap<String, String> getList() {
         return list;
     }
