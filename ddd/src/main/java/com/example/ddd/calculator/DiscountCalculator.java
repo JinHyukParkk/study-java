@@ -1,19 +1,16 @@
 package com.example.ddd.calculator;
 
-import com.example.ddd.domain.Customer;
 import org.javamoney.moneta.Money;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DiscountCalculator {
+public class DiscountCalculator implements Calculator {
 
     private final static double DISCOUNT_RATE = 0.7;
 
 
-    public Money calculate(Customer customer) {
+    public Money calculate(Money money) {
 
-        Money customerMoney = customer.getMoney();
-
-        return customerMoney.multiply(0.7);
+        return money.multiply(DISCOUNT_RATE);
     }
 }

@@ -1,6 +1,6 @@
 package com.example.ddd.service;
 
-import com.example.ddd.calculator.DiscountCalculator;
+import com.example.ddd.calculator.Calculator;
 import com.example.ddd.domain.Customer;
 import com.example.ddd.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,13 +12,15 @@ import org.springframework.stereotype.Service;
 public class CalculateDiscountService {
 
     private final CustomerRepository customerRepository;
-    private final DiscountCalculator discountCalculator;
 
+    private final Calculator discountCalculator;
 
-    public Money CalculateDiscount(Long customerId) {
-        Customer customer = customerRepository.findById(customerId).orElse(null);
+    public Money calculateDiscount(Long customerId) throws Exception {
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new Exception("no customer"));
 
-        return discountCalculator.calculate(customer);
+        Money customerMoney = Money.of(customer.getMoney(), "USD");
 
+        return discountCalculator.calculate(customerMoney);
     }
 }
