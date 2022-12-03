@@ -21,10 +21,14 @@ dependencies {
 
     // h2 DB
     runtimeOnly 'com.h2database:h2'
+    runtimeOnly 'org.mariadb.jdbc:mariadb-java-client:2.7.4'
 
-    testImplementation 'org.mockito:mockito-core:4.9.0'
-    testImplementation 'org.mockito:mockito-junit-jupiter:4.9.0'
+//    testImplementation 'org.mockito:mockito-core:4.9.0'
+//    testImplementation 'org.mockito:mockito-junit-jupiter:4.9.0'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.testcontainers:junit-jupiter:1.17.6'
+    testImplementation "org.testcontainers:mariadb:1.17.6"
+
 }
 
 tasks.named('test') {

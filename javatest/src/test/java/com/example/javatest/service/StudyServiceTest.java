@@ -15,13 +15,20 @@ import com.example.javatest.domain.Member;
 import com.example.javatest.domain.Study;
 import com.example.javatest.domain.repository.StudyRepository;
 import java.util.Optional;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.testcontainers.containers.JdbcDatabaseContainer;
+import org.testcontainers.containers.MariaDBContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
 
 @ExtendWith(MockitoExtension.class)
+@Testcontainers
 class StudyServiceTest {
 
     @Mock
@@ -29,6 +36,20 @@ class StudyServiceTest {
 
     @Mock
     StudyRepository studyRepository;
+
+    @Container
+    static JdbcDatabaseContainer mariaDBContainer = new MariaDBContainer("mariadb:10.5")
+            .withDatabaseName("test");
+
+    @BeforeAll
+    static void beforeAll() {
+        mariaDBContainer.start();
+    }
+
+    @AfterAll
+    static void afterAll() {
+        mariaDBContainer.stop();
+    }
 
     @Test
     void createStudyService() {
