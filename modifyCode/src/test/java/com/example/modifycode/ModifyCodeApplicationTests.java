@@ -1,10 +1,10 @@
-package com.example.modifingcode;
+package com.example.modifycode;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ModifingCodeApplicationTests {
+class ModifyCodeApplicationTests {
 
     @Test
     void contextLoads() {

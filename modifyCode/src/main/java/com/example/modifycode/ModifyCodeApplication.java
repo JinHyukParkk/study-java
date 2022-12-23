@@ -1,13 +1,13 @@
-package com.example.modifingcode;
+package com.example.modifycode;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ModifingCodeApplication {
+public class ModifyCodeApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(ModifingCodeApplication.class, args);
+        SpringApplication.run(ModifyCodeApplication.class, args);
     }
 
 }
