@@ -15,6 +15,10 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+
+    // https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy
+    implementation 'net.bytebuddy:byte-buddy:1.12.20'
+
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
