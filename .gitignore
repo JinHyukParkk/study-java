@@ -2,3 +2,6 @@ modern-java/build
 modern-java/.gradle
 *.xml
 modern-java/.idea
+thejava/.gradle
+thejava/.idea
+thejava/build
