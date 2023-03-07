@@ -25,13 +25,13 @@ class ComparatorExampleTest {
 
         System.out.println(users);
 
-//        Comparator<User> idComparator = Comparator.comparingInt(User::getId);
-        Comparator<User> idComparator = (User u1, User u2) -> u1.getId() - u2.getId();
+//        Comparator<User> idComparator = (User u1, User u2) -> u1.getId() - u2.getId();
+        Comparator<User> idComparator = Comparator.comparingInt(User::getId);
         users.sort(idComparator);
         System.out.println(users);
 
 //        Collections.sort(users, (u1, u2) -> u1.getName().compareTo(u2.getName()));
-        Collections.sort(users, Comparator.comparing(User::getName));
+        users.sort(Comparator.comparing(User::getName));
         System.out.println(users);
     }
 }
