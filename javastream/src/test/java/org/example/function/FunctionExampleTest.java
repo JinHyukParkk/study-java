@@ -1,4 +1,4 @@
-package function;
+package org.example.function;
 
 import java.util.function.BiFunction;
 import org.junit.jupiter.api.Test;

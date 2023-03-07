@@ -1,4 +1,4 @@
-package function;
+package org.example.function;
 
 import java.util.function.Function;
 import org.example.function.Adder;

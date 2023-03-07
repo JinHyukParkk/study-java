@@ -1,4 +1,4 @@
-package function;
+package org.example.function;
 
 import org.example.function.TriFunction;
 import org.junit.jupiter.api.Test;
