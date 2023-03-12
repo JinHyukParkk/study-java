@@ -1,8 +1,8 @@
 package org.example.function;
 
-import java.util.function.Function;
-import org.example.function.Adder;
 import org.junit.jupiter.api.Test;
+
+import java.util.function.Function;
 
 class AdderTest {
 

@@ -1,7 +1,8 @@
 package org.example;
 
-import java.util.function.Supplier;
 import org.junit.jupiter.api.Test;
+
+import java.util.function.Supplier;
 
 class SupplierExampleTest {
 
