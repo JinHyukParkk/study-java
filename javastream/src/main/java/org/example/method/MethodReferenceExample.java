@@ -14,7 +14,6 @@ public class MethodReferenceExample {
  *  ClassName::new  => 클래스의 constructor를 지정할 때
  *
  *
- *
  *  */
 
 }
