@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 class MethodReferenceExampleTest {
 
     @Test
+    @DisplayName("클래스의 static method를 지정하는 것과 같다.")
     void case1() {
         Function<String, Integer> str2int = Integer::parseInt;
         int five = str2int.apply("5");
@@ -22,6 +23,7 @@ class MethodReferenceExampleTest {
     }
 
     @Test
+    @DisplayName("선언된 객체의 instance method를 지정하는 것과 같다.")
     void case2() {
         String str = "hello";
         Predicate<String> equalsToHello = str::equals;
@@ -32,6 +34,7 @@ class MethodReferenceExampleTest {
     }
 
     @Test
+    @DisplayName("람다식을 지정한다.")
     void case3() {
         int sum = calculate(8, 2, (x, y) -> x + y);
 
@@ -39,6 +42,7 @@ class MethodReferenceExampleTest {
     }
 
     @Test
+    @DisplayName("클래스의 static method를 지정한다.")
     void case4() {
         int mul = calculate(8, 2, MethodReferenceExampleTest::multiply);
 
@@ -46,6 +50,7 @@ class MethodReferenceExampleTest {
     }
 
     @Test
+    @DisplayName("선언된 객체의 instance method를 지정한다.")
     void case5() {
         MethodReferenceExampleTest instance = new MethodReferenceExampleTest();
         int sub = calculate(8, 2, instance::subtract);
