@@ -1,8 +1,10 @@
 package org.example.method;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.function.BiFunction;
+import java.util.function.BiPredicate;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
@@ -56,6 +58,20 @@ class MethodReferenceExampleTest {
         int sub = calculate(8, 2, this::subtract);
 
         assertEquals(6, sub);
+    }
+
+    @Test
+    @DisplayName("해당 클래스의 인스턴스를 매개변수로 넘겨 메서드를 실행해주는 함수")
+    void case7() {
+        Function<String, Integer> strLength = String::length;
+        int length = strLength.apply("Hello, world");
+
+        assertEquals(12, length);
+
+        BiPredicate<String, String> strEquals = String::equals;
+        boolean result = strEquals.test("hello", "world");
+
+        assertFalse(result);
     }
 
     private int calculate(int x, int y, BiFunction<Integer, Integer, Integer> operator) {
