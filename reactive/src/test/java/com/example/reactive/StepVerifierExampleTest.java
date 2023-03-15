@@ -17,7 +17,7 @@ class StepVerifierExampleTest {
         StepVerifier.create(flux)
                 .expectNext("foo")
                 .expectNext("bar")
-                .expectComplete();
+                .verifyComplete();
     }
 
     @Test
@@ -41,7 +41,8 @@ class StepVerifierExampleTest {
 
     @Test
     void intervalTest() {
-        Flux<Long> take10 = Flux.interval(Duration.ofMillis(100));
+        Flux<Long> take10 = Flux.interval(Duration.ofMillis(100))
+            .take(10);
 
         StepVerifier.create(take10)
                 .expectNextCount(10)
@@ -56,8 +57,7 @@ class StepVerifierExampleTest {
                 .expectNoEvent(Duration.ofHours(2)) // expectNoEvent를 쓸 땐 expectSubscription() 가 앞에 꼭 있어야함
                 .thenAwait(Duration.ofHours(1))
                 .expectNextCount(1)
-                .expectComplete()
-                .verify();
+                .verifyComplete();
     }
 
     public static class User {
