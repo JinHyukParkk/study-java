@@ -1,4 +1,4 @@
-package org.example.method;
+package org.example.reference;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
