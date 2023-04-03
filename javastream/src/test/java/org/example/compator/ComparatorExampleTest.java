@@ -1,5 +1,6 @@
 package org.example.compator;
 
+import org.example.models.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -9,10 +10,10 @@ import java.util.List;
 class ComparatorExampleTest {
 
     /*
-    * 음수면 o1 < o2
-    * 0 이면 o1 = o2
-    * 양수면 o1 > o2
-    * */
+     * 음수면 o1 < o2
+     * 0 이면 o1 = o2
+     * 양수면 o1 > o2
+     * */
     @Test
     void test() {
         List<User> users = new ArrayList<>();

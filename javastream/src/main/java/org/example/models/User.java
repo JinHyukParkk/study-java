@@ -1,4 +1,4 @@
-package org.example.compator;
+package org.example.models;
 
 public class User {
 
