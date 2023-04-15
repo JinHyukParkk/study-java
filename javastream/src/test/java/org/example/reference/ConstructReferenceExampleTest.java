@@ -18,7 +18,7 @@ class ConstructReferenceExampleTest {
 
     @Test
     void case1() {
-        BiFunction<Integer, String, User> userCreator = User::new;
+        BiFunction<Integer, String, User> userCreator = (id, name) -> User.builder().id(id).name(name).build();
         User hyuk = userCreator.apply(1, "hyuk");
         System.out.println(hyuk);
     }
