@@ -1,5 +1,6 @@
 package org.example.filterex;
 
+import org.example.models.Order;
 import org.example.models.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -7,6 +8,11 @@ import org.junit.jupiter.api.Test;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import static org.example.models.Order.OrderStatus.CREATED;
+import static org.example.models.Order.OrderStatus.ERROR;
+import static org.example.models.Order.OrderStatus.IN_PROGRESS;
+import static org.example.models.Order.OrderStatus.PROCESSED;
 
 class FilterExampleTest {
 
@@ -36,6 +42,18 @@ class FilterExampleTest {
         System.out.println(userList);
     }
 
+    @Test
+    @DisplayName("에러 주문만 뽑기 테스트")
+    void case3() {
+        List<Order> orders = createOrder();
+
+        List<Order> orderList = orders.stream()
+            .filter(order -> order.getStatus() == ERROR)
+            .collect(Collectors.toList());
+
+        System.out.println(orderList);
+    }
+
     private List<User> createUsers() {
         return List.of(
             User.builder()
@@ -60,6 +78,31 @@ class FilterExampleTest {
                 .name("min")
                 .isVerified(true)
                 .emailAddress("min@test.com")
+                .build()
+        );
+    }
+
+    private List<Order> createOrder() {
+        return List.of(
+            Order.builder()
+                .id(1001)
+                .status(CREATED)
+                .build(),
+            Order.builder()
+                .id(1002)
+                .status(ERROR)
+                .build(),
+            Order.builder()
+                .id(1003)
+                .status(PROCESSED)
+                .build(),
+            Order.builder()
+                .id(1004)
+                .status(ERROR)
+                .build(),
+            Order.builder()
+                .id(1005)
+                .status(IN_PROGRESS)
                 .build()
         );
     }
