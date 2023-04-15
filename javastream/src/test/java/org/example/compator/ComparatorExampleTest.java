@@ -17,9 +17,15 @@ class ComparatorExampleTest {
     @Test
     void test() {
         List<User> users = new ArrayList<>();
-        users.add(new User(3, "Hyuk"));
-        users.add(new User(1, "Min"));
-        users.add(new User(5, "Gun"));
+        users.add(User.builder()
+            .id(3)
+            .name("Hyuk").build());
+        users.add(User.builder()
+            .id(1)
+            .name("Min").build());
+        users.add(User.builder()
+            .id(5)
+            .name("Gun").build());
 
         System.out.println(users);
 
