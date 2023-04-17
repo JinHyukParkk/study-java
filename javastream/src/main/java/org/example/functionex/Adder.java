@@ -1,4 +1,4 @@
-package org.example.function;
+package org.example.functionex;
 
 import java.util.function.Function;
 

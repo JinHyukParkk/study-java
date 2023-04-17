@@ -1,4 +1,4 @@
-package org.example.function;
+package org.example.functionex;
 
 @FunctionalInterface
 public interface TriFunction<T, U, V, R> {
