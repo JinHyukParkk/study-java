@@ -1,6 +1,8 @@
 package org.example.streamex;
 
+import org.example.fixture.OrderFixtureFactory;
 import org.example.fixture.UserFixtureFactory;
+import org.example.models.Order;
 import org.example.models.User;
 import org.junit.jupiter.api.Test;
 
@@ -44,5 +46,15 @@ class StreamExampleTest {
             .collect(Collectors.toList());
 
         System.out.println(emailList);
+    }
+
+    @Test
+    void case3() {
+        List<Order> userIds = OrderFixtureFactory.createOrder().stream()
+            .filter(order -> order.getStatus() == Order.OrderStatus.ERROR)
+//            .map(Order::getCreatedByUserId)
+            .collect(Collectors.toList());
+
+        System.out.println(userIds);
     }
 }

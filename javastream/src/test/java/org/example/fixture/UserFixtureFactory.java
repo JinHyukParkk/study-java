@@ -32,7 +32,7 @@ public class UserFixtureFactory {
                 .emailAddress("min@test.com")
                 .build(),
             User.builder()
-                .id(104)
+                .id(105)
                 .name("suk")
                 .isVerified(true)
                 .build()
