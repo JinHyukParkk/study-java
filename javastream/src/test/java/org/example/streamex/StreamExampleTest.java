@@ -1,10 +1,13 @@
 package org.example.streamex;
 
+import org.example.fixture.UserFixtureFactory;
+import org.example.models.User;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -30,5 +33,16 @@ class StreamExampleTest {
         Stream<Integer> numberStream = numberSet.stream();
         List<Integer> numbers = numberStream.collect(Collectors.toList());
         numbers.forEach(System.out::println);
+    }
+
+    @Test
+    void case2() {
+        List<String> emailList = UserFixtureFactory.createUsers().stream()
+            .filter(user -> user.isVerified())
+            .map(User::getEmailAddress)
+            .filter(Objects::nonNull)
+            .collect(Collectors.toList());
+
+        System.out.println(emailList);
     }
 }
