@@ -1,4 +1,4 @@
-package org.example;
+package org.example.functionex;
 
 import org.junit.jupiter.api.Test;
 
@@ -20,13 +20,13 @@ class PredicateExampleTest {
         Predicate<Integer> isPositive = x -> x > 0;
         List<Integer> inputs = Arrays.asList(10, -5, 4, -2, 0);
         System.out.println("Positive number : "
-                + filter(inputs, x -> x > 0));
+            + filter(inputs, x -> x > 0));
         System.out.println("Non-positive number : "
-                + filter(inputs, isPositive.negate()));
+            + filter(inputs, isPositive.negate()));
         System.out.println("Non-negative number : "
-                + filter(inputs, isPositive.or(x -> x == 0)));
+            + filter(inputs, isPositive.or(x -> x == 0)));
         System.out.println("Positive even numbers : "
-                + filter(inputs, isPositive.and(x -> x % 2 == 0)));
+            + filter(inputs, isPositive.and(x -> x % 2 == 0)));
     }
 
     private <T> List<T> filter(List<T> inputs, Predicate<T> condition) {
