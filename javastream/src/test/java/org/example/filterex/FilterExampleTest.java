@@ -1,5 +1,6 @@
 package org.example.filterex;
 
+import org.example.fixture.UserFixtureFactory;
 import org.example.models.Order;
 import org.example.models.User;
 import org.junit.jupiter.api.DisplayName;
@@ -33,7 +34,7 @@ class FilterExampleTest {
     @Test
     @DisplayName("이메일 검증된 유저만 뽑기 테스트")
     void case2() {
-        List<User> users = createUsers();
+        List<User> users = UserFixtureFactory.createUsers();
 
         List<User> userList = users.stream()
             .filter(User::isVerified)
@@ -52,34 +53,6 @@ class FilterExampleTest {
             .collect(Collectors.toList());
 
         System.out.println(orderList);
-    }
-
-    private List<User> createUsers() {
-        return List.of(
-            User.builder()
-                .id(101)
-                .name("hyuk")
-                .isVerified(true)
-                .emailAddress("hyuk@test.com")
-                .friendUserIds(List.of(102, 103, 104))
-                .build(),
-            User.builder()
-                .id(102)
-                .name("gun")
-                .isVerified(false)
-                .build(),
-            User.builder()
-                .id(103)
-                .name("chul")
-                .isVerified(false)
-                .build(),
-            User.builder()
-                .id(104)
-                .name("min")
-                .isVerified(true)
-                .emailAddress("min@test.com")
-                .build()
-        );
     }
 
     private List<Order> createOrder() {
