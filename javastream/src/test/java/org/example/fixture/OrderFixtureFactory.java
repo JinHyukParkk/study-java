@@ -38,6 +38,7 @@ public class OrderFixtureFactory {
             Order.builder()
                 .id(1004)
                 .status(ERROR)
+                .createdAt(now.minusHours(2))
                 .createdByUserId(104)
                 .build(),
             Order.builder()

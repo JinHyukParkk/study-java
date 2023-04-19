@@ -1,4 +1,4 @@
-package org.example.mapex;
+package org.example.streamex;
 
 public class MapExample {
 

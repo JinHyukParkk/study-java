@@ -1,4 +1,4 @@
-package org.example.filterex;
+package org.example.streamex;
 
 import org.example.fixture.OrderFixtureFactory;
 import org.example.fixture.UserFixtureFactory;

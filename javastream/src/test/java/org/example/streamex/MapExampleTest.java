@@ -1,4 +1,4 @@
-package org.example.mapex;
+package org.example.streamex;
 
 import org.example.fixture.UserFixtureFactory;
 import org.example.models.User;

@@ -1,4 +1,4 @@
-package org.example.filterex;
+package org.example.streamex;
 
 public class FilterExample {
 
