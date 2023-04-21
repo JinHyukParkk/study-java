@@ -1,5 +1,8 @@
 package org.example.streamex;
 
+import org.example.fixture.OrderFixtureFactory;
+import org.example.models.Order;
+import org.example.models.OrderLine;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
@@ -21,5 +24,16 @@ class FlatMapExampleTest {
             .collect(Collectors.toList());
 
         System.out.println(cityList);
+    }
+
+    @Test
+    void case2() {
+        List<Order> orders = OrderFixtureFactory.createOrderWithOrderLine();
+
+        List<OrderLine> orderLineList = orders.stream()
+            .flatMap(order -> order.getOrderLines().stream())
+            .collect(Collectors.toList());
+
+        System.out.println(orderLineList);
     }
 }
