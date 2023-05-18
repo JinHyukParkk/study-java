@@ -88,12 +88,12 @@ class ErrorExceptionTest {
             .map(i -> {
                 if (i == 2) {
                     throw new RuntimeException("error");
-                } else if (i == -2) {
+                } else if (i == 4) {
                     throw new RuntimeException("error2");
                 }
                 return i;
             })
-            .onErrorResume(e -> Flux.just(-1, -2, -3))
+            .onErrorResume(e -> Flux.just(4, 5, 6))
             .subscribe(
                 (data) -> System.out.println(data),
                 (error) -> System.out.println(error),
