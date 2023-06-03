@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 
-class distinctExampleTest {
+class DistinctExampleTest {
 
     @Test
     void case1() {

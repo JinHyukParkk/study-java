@@ -1,6 +1,6 @@
 package org.example.streamex;
 
-public class toMapExample {
+public class ToMapExample {
 
     /*
      * Stream 안의 데이터를 Map으로 변환

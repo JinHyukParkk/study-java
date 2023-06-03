@@ -1,5 +1,5 @@
 package org.example.streamex;
 
-public class minMaxCountExample {
+public class MinMaxCountExample {
 
 }
