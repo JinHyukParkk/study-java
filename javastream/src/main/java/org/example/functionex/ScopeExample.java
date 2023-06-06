@@ -24,7 +24,7 @@ public class ScopeExample {
 
         Supplier<String> supplier = () -> {
             String world = "World";
-            hello = "Hello, ";
+//            hello = "Hello, ";
 
             return hello + world;
         };
