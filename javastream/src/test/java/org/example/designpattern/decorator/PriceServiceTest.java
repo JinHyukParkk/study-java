@@ -1,5 +1,10 @@
 package org.example.designpattern.decorator;
 
+import org.example.designpattern.decorator.price.BasicPriceProcessor;
+import org.example.designpattern.decorator.price.DiscountPriceProcessor;
+import org.example.designpattern.decorator.price.Price;
+import org.example.designpattern.decorator.price.PriceProcessor;
+import org.example.designpattern.decorator.price.TaxPriceProcessor;
 import org.junit.jupiter.api.Test;
 
 class PriceServiceTest {

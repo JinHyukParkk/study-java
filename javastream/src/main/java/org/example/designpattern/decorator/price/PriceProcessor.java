@@ -1,4 +1,4 @@
-package org.example.designpattern.decorator;
+package org.example.designpattern.decorator.price;
 
 @FunctionalInterface
 public interface PriceProcessor {

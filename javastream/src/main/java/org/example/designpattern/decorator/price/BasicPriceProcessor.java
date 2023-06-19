@@ -1,4 +1,4 @@
-package org.example.designpattern.decorator;
+package org.example.designpattern.decorator.price;
 
 public class BasicPriceProcessor implements PriceProcessor {
 
