@@ -1,5 +1,6 @@
 package org.example.designpattern.chainOfResponsibillty;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
@@ -7,8 +8,11 @@ import java.util.Arrays;
 
 class ExplainTest {
 
-    @Test
-    void case1() {
+    OrderProcessStep chainOrderProcessSteps;
+
+
+    @BeforeEach
+    void prepare() {
         OrderProcessStep initialStep = new OrderProcessStep(order -> {
             if (order.getStatus() == Order.OrderStatus.CREATED) {
                 System.out.println("initialStep order id : " + order.getId());
@@ -44,7 +48,7 @@ class ExplainTest {
 
         OrderProcessStep handleStep = new OrderProcessStep(order -> {
             if (order.getStatus() == Order.OrderStatus.ERROR) {
-                System.out.println("handleStep order id : " + order.getId());
+                System.out.println("handleStep error order id : " + order.getId());
             }
         });
 
@@ -54,12 +58,15 @@ class ExplainTest {
             }
         });
 
-        OrderProcessStep chainOrderProcessSteps = initialStep.setNext(validateStep)
+        chainOrderProcessSteps = initialStep.setNext(validateStep)
             .setNext(verifyStep)
             .setNext(processStep)
             .setNext(handleStep)
             .setNext(completeStep);
+    }
 
+    @Test
+    void case1() {
         Order order = Order.builder()
             .id(1001L)
             .status(Order.OrderStatus.CREATED)
@@ -68,6 +75,22 @@ class ExplainTest {
                     .build(),
                 OrderLine.builder()
                     .amount(BigDecimal.valueOf(2000))
+                    .build()))
+            .build();
+
+        chainOrderProcessSteps.process(order);
+    }
+
+    @Test
+    void case2() {
+        Order order = Order.builder()
+            .id(1001L)
+            .status(Order.OrderStatus.CREATED)
+            .orderLines(Arrays.asList(OrderLine.builder()
+                    .amount(BigDecimal.valueOf(-1000))
+                    .build(),
+                OrderLine.builder()
+                    .amount(BigDecimal.valueOf(-2000))
                     .build()))
             .build();
 
