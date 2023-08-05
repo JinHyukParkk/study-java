@@ -3,6 +3,7 @@ package com.example.reactive;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 class OperationExampleTest {
 
@@ -22,5 +23,15 @@ class OperationExampleTest {
             .map(tuple -> tuple.getT1() + " " + tuple.getT2() + " " + tuple.getT3())
             .doOnNext(System.out::println)
             .blockLast();
+    }
+
+    @Test
+    @DisplayName("reduce 로 받아보기")
+    void case2() {
+        Flux<Integer> numbers = Flux.range(1, 5);
+
+        Mono<Integer> sumMono = numbers.reduce((acc, num) -> acc + num);
+        
+        sumMono.subscribe(sum -> System.out.println("Sum of all integers: " + sum));
     }
 }
