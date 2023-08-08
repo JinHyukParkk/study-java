@@ -3,6 +3,7 @@ package com.example.reactive;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
 import java.util.List;
 
@@ -65,7 +66,7 @@ class FlatMapExampleTest {
         );
     }
 
-    public List<String> toUpperCase(String s) {
+    private List<String> toUpperCase(String s) {
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
@@ -73,5 +74,22 @@ class FlatMapExampleTest {
         }
 
         return List.of(s.toUpperCase(), Thread.currentThread().getName());
+    }
+
+    @Test
+    public void testFlatMap() {
+
+        Flux<String> flux = Flux.just("Hello", "Reactive", "Programming");
+
+        // flatMap 은 내부적으로 추가 네트워크를 호출하거나 데이터베이스에서 데이터를 가져오는 등의 비동기 작업을 수행할 때 사용한다.
+        // map은 단순한 변환 시 사용한다.
+        Flux<Integer> lengthFlux = flux.flatMap(str -> Mono.just(str.length()));
+//        Flux<Integer> lengthFlux = flux.map(str -> Mono.just(str.length()));
+
+        // Test the transformed Flux using StepVerifier
+        StepVerifier.create(lengthFlux)
+            .expectNext(5, 8, 11) // Expect lengths of "Hello", "Reactive", and "Programming"
+            .expectComplete() // Expect the Flux to complete successfully
+            .verify();
     }
 }
