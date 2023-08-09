@@ -128,4 +128,26 @@ class BackpressureExampleTest {
         // Wait for a while to observe backpressure in action
         Thread.sleep(10000);
     }
+
+    @Test
+    void test7() {
+        Flux<Integer> fastProducer = Flux.range(1, 1000); // Produces 1 to 1000
+
+        fastProducer
+            .doOnNext(data -> System.out.println("Producing: " + data))
+            .limitRate(10) // Applying backpressure: Limit to processing 10 items at a time
+            .subscribe(
+                data -> {
+                    // Simulating slow processing
+                    try {
+                        Thread.sleep(100);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.println("Consuming: " + data);
+                },
+                error -> System.err.println("Error: " + error),
+                () -> System.out.println("Completed")
+            );
+    }
 }
