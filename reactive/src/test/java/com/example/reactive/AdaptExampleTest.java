@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 class AdaptExampleTest {
@@ -65,4 +66,18 @@ class AdaptExampleTest {
      * reator 안에는 이렇게 Adapter 코드들이 내제되어 있을거임
      *
      * */
+
+    @Test
+    @DisplayName("List를 Flux로 바꾸기")
+    void case5() {
+        List<Integer> dataList = List.of(1, 2, 3, 4, 5);
+
+        // Flux.fromIterable
+        Flux<Integer> reactiveStream = Flux.fromIterable(dataList);
+
+        reactiveStream
+            .map(i -> i * 2) // Transform each element
+            .doOnNext(i -> System.out.println("Processed: " + i)) // Side-effect
+            .subscribe(); // Subscribe to the reactive stream
+    }
 }
