@@ -3,6 +3,7 @@ package com.example.reactive;
 import io.reactivex.rxjava3.core.Flowable;
 import org.junit.jupiter.api.Test;
 import reactor.core.publisher.Mono;
+import reactor.test.StepVerifier;
 
 class MonoExampleTest {
 
@@ -28,14 +29,23 @@ class MonoExampleTest {
     }
 
     @Test
-    void distinctTest() {
+    void distinctUntilChangedTest() {
 
         Flowable<Integer> numbers = Flowable.just(1, 2, 2, 3, 4, 4, 5);
 
-        Flowable<Integer> distinctNumbers = numbers.distinct();
+        Flowable<Integer> distinctNumbers = numbers.distinctUntilChanged();
 
         distinctNumbers.subscribe(System.out::println);
 
     }
 
+    @Test
+    void monoTest() {
+        Mono<Integer> result = Mono.just(10);
+
+        StepVerifier.create(result)
+            .expectNext(10) // Expect the next value to be 10
+            .verifyComplete(); // Verify that the stream completes
+
+    }
 }
