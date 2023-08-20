@@ -133,4 +133,38 @@ class ErrorExceptionTest {
                 (error) -> System.out.println(error.toString()),
                 () -> System.out.println("complete"));
     }
+
+    @Test
+    @DisplayName("기본 예외 처리")
+    void case9() {
+        // Example 1: Handling errors in Flux
+        Flux<Integer> numbers = Flux.just(1, 2, 3, 4, 5)
+            .map(number -> {
+                if (number == 3) {
+                    throw new RuntimeException("Oops, an error occurred!");
+                }
+                return number;
+            });
+
+        numbers.subscribe(
+            value -> System.out.println("Received: " + value),
+            error -> System.err.println("Error: " + error.getMessage()),
+            () -> System.out.println("Completed")
+        );
+
+        // Example 2: Handling errors in Mono
+        Mono<Integer> number = Mono.just(10)
+            .flatMap(value -> {
+                if (value == 10) {
+                    return Mono.error(new IllegalArgumentException("Invalid value"));
+                }
+                return Mono.just(value);
+            });
+
+        number.subscribe(
+            value -> System.out.println("Received: " + value),
+            error -> System.err.println("Error: " + error.getMessage()),
+            () -> System.out.println("Completed")
+        );
+    }
 }
