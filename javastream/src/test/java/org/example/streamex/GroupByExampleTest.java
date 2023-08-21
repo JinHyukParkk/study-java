@@ -1,7 +1,9 @@
 package org.example.streamex;
 
+import org.example.model.Person;
 import org.junit.jupiter.api.Test;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -40,5 +42,25 @@ class GroupByExampleTest {
         Map<Integer, List<String>> unitDigitToNumbersMap = numbers.stream()
             .collect(Collectors.groupingBy(number -> number % 10, Collectors.mapping(number -> "value : " + number, Collectors.toList())));
         System.out.println(unitDigitToNumbersMap);
+    }
+
+    @Test
+    void case5() {
+        List<Person> people = Arrays.asList(
+            new Person("Alice", 25),
+            new Person("Bob", 30),
+            new Person("Charlie", 25),
+            new Person("David", 30)
+        );
+
+        // Group people by age
+        Map<Integer, List<Person>> peopleByAge = people.stream()
+            .collect(Collectors.groupingBy(Person::getAge));
+
+        // Print the grouped result
+        peopleByAge.forEach((age, persons) -> {
+            System.out.println("Age: " + age);
+            persons.forEach(person -> System.out.println("  " + person.getName()));
+        });
     }
 }
