@@ -54,4 +54,13 @@ public class ExampleExecutor {
 
         System.out.println("end");
     }
+
+    public void execute1() {
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+        executor.submit(() -> {
+            String threadName = Thread.currentThread().getName();
+            System.out.println("Job : " + threadName);
+        });
+        executor.shutdown();
+    }
 }
