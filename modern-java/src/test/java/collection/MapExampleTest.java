@@ -14,4 +14,14 @@ class MapExampleTest {
 
         assertEquals(2, map.size());
     }
+
+    @Test
+    void case2() {
+        Map<String, String> map = Map.ofEntries(
+                Map.entry("key1", "value1"),
+                Map.entry("key2", "value2")
+        );
+
+        assertEquals(2, map.size());
+    }
 }
