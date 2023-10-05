@@ -83,4 +83,11 @@ class LocalDateExampleTest {
         LocalDate date2 = LocalDate.parse(formattedDate, formatter);
         assertThat(date2).isEqualTo("2022-10-21");
     }
+
+    @Test
+    void testParse() {
+        LocalDate date = LocalDate.parse("2022-10-21");
+
+        assertThat(date).isEqualTo("2022-10-21");
+    }
 }
