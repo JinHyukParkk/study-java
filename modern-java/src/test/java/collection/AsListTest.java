@@ -62,7 +62,6 @@ class AsListTest {
     int i = 0;
     void te111() {
         List<Integer> a = new ArrayList<>();
-        a.add(new Integer(i++));
-        te111();
+        a.add(i++);
     }
 }
