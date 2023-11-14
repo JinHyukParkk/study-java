@@ -16,7 +16,7 @@ class FunctionExampleTest {
     }
 
     @Test
-    void factorial() {
+    void factorialTest() {
         Function<Integer, Integer> factorial = n -> calculateFactorial(n);
 
         int result1 = factorial.apply(5); // 결과는 120
@@ -25,7 +25,7 @@ class FunctionExampleTest {
         System.out.println(result1);
         System.out.println(result2);
     }
-    static int calculateFactorial(int n) {
+    private static int calculateFactorial(int n) {
         if (n == 0) {
             return 1;
         } else {

@@ -3,11 +3,11 @@ package functionalInterface.function;
 import java.util.function.Function;
 import org.junit.jupiter.api.Test;
 
-class AdderTest {
+class TenAdderTest {
 
     @Test
     void test() {
-        Function<Integer, Integer> myAdder = new Adder();
+        Function<Integer, Integer> myAdder = new TenAdder();
         int result = myAdder.apply(5);
         System.out.println(result);
     }
