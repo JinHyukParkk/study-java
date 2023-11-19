@@ -24,9 +24,11 @@ class FunctionExampleTest {
 
         int result1 = factorial.apply(5); // 결과는 120
         int result2 = factorial.apply(5); // 결과도 120
+        var result3 = factorial.apply(5); // 결과도 120
 
         System.out.println(result1);
         System.out.println(result2);
+        System.out.println(result3);
     }
     private static int calculateFactorial(int n) {
         if (n == 0) {
@@ -44,7 +46,7 @@ class FunctionExampleTest {
         // 기존 리스트를 변경하지 않고 새로운 리스트를 생성
         List<Integer> evenNumbers = numbers.stream()
             .filter(n -> n % 2 == 0)
-            .collect(Collectors.toList());
+            .toList();
 
         // 원본 리스트 출력
         System.out.println("Original List: " + numbers);
