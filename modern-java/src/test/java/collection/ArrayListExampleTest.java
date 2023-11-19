@@ -1,6 +1,7 @@
 package collection;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Spliterator;
 import org.junit.jupiter.api.Test;
 
@@ -29,5 +30,19 @@ class ArrayListExampleTest {
         });
 
         System.out.println((System.nanoTime() - startTime) / 1000000 + "밀리초 걸림");
+    }
+
+    @Test
+    void removeIfTest() {
+        List<Integer> numbers = new ArrayList<>();
+
+        for (int i = 0; i < 100; i++) {
+            numbers.add(i);
+        }
+
+        // removeIf
+        numbers.removeIf(i -> i % 2 == 0);
+
+        System.out.println(numbers);
     }
 }
