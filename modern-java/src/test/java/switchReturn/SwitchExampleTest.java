@@ -11,6 +11,10 @@ class SwitchExampleTest {
         assertEquals("Monday", getDayOfWeek(1));
         assertEquals("Tuesday", getDayOfWeek(2));
         assertThrows(IllegalArgumentException.class, () -> getDayOfWeek(3));
+
+        assertEquals("Monday", getDayOfWeek2(1));
+        assertEquals("Tuesday", getDayOfWeek2(2));
+        assertThrows(IllegalArgumentException.class, () -> getDayOfWeek2(3));
     }
 
     private String getDayOfWeek(int day) {
@@ -21,27 +25,17 @@ class SwitchExampleTest {
         };
     }
 
-    @Test
-    void yieldTest() {
-        String day = "MONDAY";
-        int a = switch (day) {
-            case "MONDAY", "FRIDAY", "SUNDAY" -> {
-                yield 6;
+    private String getDayOfWeek2(int day) {
+        return switch (day) {
+            case 1 -> {
+                yield "Monday";
             }
-            case "TUESDAY" -> {
-                yield 7;
-            }
-            case "THURSDAY", "SATURDAY" -> {
-                yield 8;
-            }
-            case "WEDNESDAY" -> {
-                yield 9;
+            case 2 -> {
+                yield "Tuesday";
             }
             default -> {
-                yield 0; // 다른 경우에 대한 기본 값
+                throw new IllegalArgumentException("Invalid day of the week: " + day);
             }
         };
-
-        System.out.println(a);
     }
 }
