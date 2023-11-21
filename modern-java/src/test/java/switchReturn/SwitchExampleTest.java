@@ -20,4 +20,28 @@ class SwitchExampleTest {
             default -> throw new IllegalArgumentException("Invalid day of the week: " + day);
         };
     }
+
+    @Test
+    void yieldTest() {
+        String day = "MONDAY";
+        int a = switch (day) {
+            case "MONDAY", "FRIDAY", "SUNDAY" -> {
+                yield 6;
+            }
+            case "TUESDAY" -> {
+                yield 7;
+            }
+            case "THURSDAY", "SATURDAY" -> {
+                yield 8;
+            }
+            case "WEDNESDAY" -> {
+                yield 9;
+            }
+            default -> {
+                yield 0; // 다른 경우에 대한 기본 값
+            }
+        };
+
+        System.out.println(a);
+    }
 }
