@@ -1,4 +1,4 @@
-package forStream;
+package stream.forStream;
 
 import org.junit.jupiter.api.Test;
 

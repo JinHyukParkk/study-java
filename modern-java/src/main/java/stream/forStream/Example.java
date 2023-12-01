@@ -1,4 +1,4 @@
-package forStream;
+package stream.forStream;
 
 public class Example {
 
