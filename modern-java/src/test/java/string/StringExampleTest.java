@@ -41,4 +41,13 @@ class StringExampleTest {
 
         assertEquals("Hello, Java World!", replaced);
     }
+
+    @Test
+    public void testStringRepeat() {
+        // 문자열 반복 기능 테스트
+        String original = "Hello, Java 8!";
+        String repeated = original.repeat(3);
+
+        assertEquals("Hello, Java 8!Hello, Java 8!Hello, Java 8!", repeated);
+    }
 }
