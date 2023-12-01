@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class StringExampleTest {
     @Test
-    public void testStringJoin() {
+    void testStringJoin() {
         // 문자열 조인 기능 테스트
         String[] words = {"Hello", "World", "Java", "8"};
         String result = String.join(" ", words);
@@ -17,7 +17,7 @@ class StringExampleTest {
     }
 
     @Test
-    public void testStringStream() {
+    void testStringStream() {
         // 문자열 스트림 및 람다를 사용한 문자열 조작 테스트
         String text = "Java 8 is awesome!";
 
@@ -34,7 +34,7 @@ class StringExampleTest {
     }
 
     @Test
-    public void testStringReplace() {
+    void testStringReplace() {
         // 문자열 대체 기능 테스트
         String original = "Hello, Java 8!";
         String replaced = original.replace("8", "World");
@@ -43,7 +43,7 @@ class StringExampleTest {
     }
 
     @Test
-    public void testStringRepeat() {
+    void testStringRepeat() {
         // 문자열 반복 기능 테스트
         String original = "Hello, Java 8!";
         String repeated = original.repeat(3);
