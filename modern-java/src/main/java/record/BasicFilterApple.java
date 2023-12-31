@@ -1,4 +1,4 @@
-package apple;
+package record;
 
 import java.util.ArrayList;
 import java.util.List;

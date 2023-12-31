@@ -1,10 +1,14 @@
-package apple;
+package record;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 
 public class FilterApple {
+
+    private FilterApple() {
+        throw new IllegalStateException("Utility class");
+    }
 
     public static boolean isGreenApple(Apple apple) {
         return Color.GREEN.equals(apple.getColor());

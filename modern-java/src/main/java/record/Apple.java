@@ -1,4 +1,4 @@
-package apple;
+package record;
 
 public class Apple {
 

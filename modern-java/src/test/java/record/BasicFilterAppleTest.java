@@ -1,4 +1,4 @@
-package apple;
+package record;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
