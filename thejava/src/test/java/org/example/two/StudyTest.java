@@ -7,15 +7,27 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class StudyTest {
-//  junit5 에서는 public 접근제어자를 생략해도 된다. 이유는 5부터는 내부적으로 reflection을 사용하기 때문이다.
+
+    //  junit5 에서는 public 접근제어자를 생략해도 된다. 이유는 5부터는 내부적으로 reflection을 사용하기 때문이다.
     @Test
     void test() {
         Study study = new Study();
+
+        // assertAll 을 사용하면 모든 테스트를 한번에 실행할 수 있다.
+        assertAll(
+            () -> assertNotNull(study),
+            () -> assertEquals(StudyStatus.DRAFT, study.getStatus(), () -> "스터디를 처음 만들면 " + StudyStatus.DRAFT + " 상태다.")
+        );
+
+        // 순차적으로 테스트를 실행한다.
         assertNotNull(study);
-        System.out.println("test");
+        assertEquals(StudyStatus.DRAFT, study.getStatus(), () -> "스터디를 처음 만들면 " + StudyStatus.DRAFT + " 상태다.");
+
     }
 
     @Test
