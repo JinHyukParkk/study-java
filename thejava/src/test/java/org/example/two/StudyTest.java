@@ -6,11 +6,13 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+@ExtendWith(FindTestExtension.class)
 class StudyTest {
 
     //  junit5 에서는 public 접근제어자를 생략해도 된다. 이유는 5부터는 내부적으로 reflection을 사용하기 때문이다.
