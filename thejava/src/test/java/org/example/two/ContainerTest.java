@@ -8,14 +8,16 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 @Testcontainers
 class ContainerTest {
 
+    public static final int PORT = 6379;
+    public static final String REDIS_IMAGE_NAME = "redis";
     @Container
-    static GenericContainer container = new GenericContainer("redis")
+    static GenericContainer container = new GenericContainer(REDIS_IMAGE_NAME)
 //        .waitingFor(new DockerHealthcheckWaitStrategy())
-        .withExposedPorts(6379)
+        .withExposedPorts(PORT)
         .withReuse(true);
 
     @Test
     void test() {
-        System.out.println(container.getMappedPort(6379));
+        System.out.println(container.getMappedPort(PORT));
     }
 }
