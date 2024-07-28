@@ -11,7 +11,8 @@ class ContainerTest {
     @Container
     static GenericContainer container = new GenericContainer("redis")
 //        .waitingFor(new DockerHealthcheckWaitStrategy())
-        .withExposedPorts(6379);
+        .withExposedPorts(6379)
+        .withReuse(true);
 
     @Test
     void test() {
